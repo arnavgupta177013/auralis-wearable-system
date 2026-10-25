@@ -1,0 +1,19 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Generated files
+dist/
+build/
+
+# Sensitive data
+data/private/
+data/participant-identifiable/
+secrets/
