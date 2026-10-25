@@ -1,0 +1,39 @@
+{
+ "mesh_levels": [
+  {
+   "h_mm": 1.6,
+   "elements": 2138,
+   "dof": 10899,
+   "vM_A": 18.14,
+   "vM_B": 19.55
+  },
+  {
+   "h_mm": 1.1,
+   "elements": 5506,
+   "dof": 25788,
+   "vM_A": 19.63,
+   "vM_B": 19.8
+  },
+  {
+   "h_mm": 0.8,
+   "elements": 13589,
+   "dof": 60762,
+   "vM_A": 20.52,
+   "vM_B": 21.2
+  }
+ ],
+ "final_peak_vonMises_caseA_MPa": 20.5,
+ "final_peak_vonMises_caseB_MPa": 21.2,
+ "FoS_yield_caseA": 2.34,
+ "FoS_yield_caseB": 2.26,
+ "max_deflection_mm": 0.0192,
+ "hand_calc": {
+  "pin_bearing_MPa": 10.42,
+  "net_section_tension_MPa": 3.09,
+  "tip_ligament_shear_tearout_MPa": 3.09
+ },
+ "mesh_stats_final": {
+  "elements": 13589,
+  "dof": 60762
+ }
+}

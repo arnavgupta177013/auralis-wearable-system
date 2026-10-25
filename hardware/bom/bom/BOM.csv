@@ -1,0 +1,15 @@
+item,qty,cost_inr
+ESP32 DevKit / WROOM-32E,1,550
+MAX30102 module,1,199
+MAX30205 breakout (ProtoCentral),1,1695
+MPU6050 GY-521,1,150
+Grove GSR v1.2,1,1057
+AD8232 + cable (validation only),1,600
+Li-Po 3.7V 400mAh PCM,1,350
+TP4056 + haptic ERM/MOSFET/diode,1,120
+Carrier PCB 5 pcs,1,1200
+316L electrodes + gel pads,1,500
+Passives/LDO/UI,1,150
+Enclosure PA12 or PETG,1,600
+TPU strap + PC window,1,500
+TOTAL,,7671

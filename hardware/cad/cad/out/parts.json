@@ -1,0 +1,78 @@
+{
+ "bottom_case": {
+  "color": "#52627a",
+  "volume_mm3": 5870.8,
+  "mass_g": 5.93
+ },
+ "top_cover": {
+  "color": "#7a8aa3",
+  "volume_mm3": 2394.8,
+  "mass_g": 2.42
+ },
+ "event_button": {
+  "color": "#38bdf8",
+  "volume_mm3": 69.0,
+  "mass_g": 0.07
+ },
+ "carrier_pcb": {
+  "color": "#15803d",
+  "volume_mm3": 2154.0,
+  "mass_g": 4.09
+ },
+ "MAX30102_PPG": {
+  "color": "#7c3aed",
+  "volume_mm3": 89.6,
+  "mass_g": 0.15
+ },
+ "MAX30205_temp": {
+  "color": "#f59e0b",
+  "volume_mm3": 22.4,
+  "mass_g": 0.05
+ },
+ "EDA_electrode_1": {
+  "color": "#cbd5e1",
+  "volume_mm3": 100.4,
+  "mass_g": 0.8
+ },
+ "EDA_electrode_2": {
+  "color": "#cbd5e1",
+  "volume_mm3": 100.4,
+  "mass_g": 0.8
+ },
+ "MPU6050_IMU": {
+  "color": "#2563eb",
+  "volume_mm3": 14.4,
+  "mass_g": 0.05
+ },
+ "ESP32_WROOM_32E": {
+  "color": "#94a3b8",
+  "volume_mm3": 1422.9,
+  "mass_g": 3.0
+ },
+ "haptic_motor": {
+  "color": "#ef4444",
+  "volume_mm3": 135.7,
+  "mass_g": 0.8
+ },
+ "LiPo_400mAh": {
+  "color": "#60a5fa",
+  "volume_mm3": 4370.7,
+  "mass_g": 9.0
+ },
+ "strap_L": {
+  "color": "#0f766e",
+  "volume_mm3": 1322.7,
+  "mass_g": 7.5
+ },
+ "strap_R": {
+  "color": "#0f766e",
+  "volume_mm3": 1322.7,
+  "mass_g": 7.5
+ },
+ "_total_mass_g": 42.2,
+ "_envelope_mm": [
+  44.0,
+  38.0,
+  14.5
+ ]
+}
