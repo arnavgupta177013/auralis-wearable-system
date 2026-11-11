@@ -1,0 +1,93 @@
+{
+  "model": "logistic regression (stress detection; WESAD lab stressor, NOT panic/anxiety)",
+  "config": "D",
+  "feature_spec_version": "stepc-1",
+  "feature_order": [
+    "hr_mean",
+    "eda_slope_rel",
+    "scr_count_rel"
+  ],
+  "window_s": 30,
+  "step_s": 5,
+  "score": "x_i <- imputer_medians[i] if x_i is NaN; z = bias_folded + sum_i weights_folded[i] * x_i; p = 1 / (1 + exp(-z)); window alert if p >= threshold (equivalently z >= logit_threshold)",
+  "imputer_medians": [
+    78.68363944216803,
+    -0.00080338575156357,
+    1.0
+  ],
+  "scaler_means": [
+    82.53536977990555,
+    0.002375981078248997,
+    2.492829914685061
+  ],
+  "scaler_sds": [
+    17.92187147485981,
+    0.12645145121760146,
+    2.9123134401573596
+  ],
+  "weights_standardised": [
+    0.7358512019926187,
+    0.012381664069492758,
+    0.5834364527865878
+  ],
+  "bias_standardised": -0.210543258740596,
+  "weights_folded": [
+    0.04105883713231878,
+    0.09791634615711936,
+    0.20033436124755286
+  ],
+  "bias_folded": -4.098981700232388,
+  "C": 0.001,
+  "threshold_op1": 0.5160913415113687,
+  "logit_threshold_op1": 0.06438760147309143,
+  "threshold_op2": 0.5189178207320404,
+  "logit_threshold_op2": 0.07570742269042612,
+  "default_operating_point": "OP1 + 4-of-5 smoothing",
+  "smoothing": {
+    "m": 4,
+    "n": 5,
+    "rule": "alert at window t if >= m of the OP1 window decisions at t, t-5 s, ..., t-5(n-1) s are positive (causal; windows not yet available count as negative)"
+  },
+  "inner_cv_choice_of_m_of_n_not_used": [
+    3,
+    5
+  ],
+  "calibration": {
+    "duration_s": 300,
+    "what_the_wearer_does": [
+      "Put the device on (GSR electrodes, PPG sensor) and keep it on for the whole session.",
+      "Let the filters run before calibrating: in WESAD the causal filters had run for 26-643 s before the calibration period began; at least 60 s (> 5 x the 8 s EMA tau) is RECOMMENDED but this warm-up rule is untested.",
+      "Sit still and at rest for 5 minutes: seated, relaxed, hand still, no talking, no walking, no eating/drinking, comfortable room (WESAD baseline: seated, reading neutral magazines; the calibration period is its first 5 min).",
+      "Do not start calibration during or straight after exercise or a stressful event."
+    ],
+    "statistics_computed": {
+      "sigma_lp_cal": "population SD (ddof 0) of the causally low-passed EDA samples (1 Hz Butterworth order 2 at 4 Hz, SOS state carried from power-on) over the 5-min calibration period (1200 samples at 4 Hz). Device units (mV) are fine: only ratios are used.",
+      "sigma_ph_cal": "population SD (ddof 0) of the phasic EDA (low-passed EDA minus causal EMA tonic, tau 8 s) over the same 1200 samples."
+    },
+    "used_by": {
+      "eda_slope_rel": "least-squares slope (per s) of the low-passed EDA over the window / sigma_lp_cal",
+      "scr_count_rel": "number of scipy.signal.find_peaks(phasic window, prominence >= 1.0 x sigma_ph_cal, distance >= 4 samples = 1 s) in the window",
+      "hr_mean": "no calibration"
+    },
+    "stored_on_device": [
+      "sigma_lp_cal",
+      "sigma_ph_cal"
+    ],
+    "validity_rule_UNTESTED": "repeat calibration if either sigma is 0 or not finite; there is no validated lower bound on the prototype",
+    "wesad_reference_values_uS": {
+      "sigma_lp_cal_min": 0.00792669341223165,
+      "sigma_lp_cal_median": 0.1415142711102019,
+      "sigma_lp_cal_max": 1.3998007323302315,
+      "sigma_ph_cal_min": 0.0018397165173464232,
+      "sigma_ph_cal_median": 0.03475710705493188,
+      "sigma_ph_cal_max": 0.12214848402171737,
+      "note": "E4 wrist EDA in uS; NOT comparable to finger mV on the prototype"
+    },
+    "pipeline_note": "In WESAD the calibration period is the first 5 min of the baseline condition; the same stream is used afterwards, so the filters are NOT restarted between calibration and use."
+  },
+  "input_rates_hz": {
+    "BVP": 64,
+    "EDA": 4
+  },
+  "expected_performance": "the LOSO result of config D (results/metrics/final_results.csv); this fitted model has no held-out estimate"
+}

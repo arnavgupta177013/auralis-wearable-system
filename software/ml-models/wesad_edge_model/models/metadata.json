@@ -1,0 +1,302 @@
+{
+  "created": "2026-11-11T13:12:20",
+  "git_head_before_this_commit": "f2823457ed17b82bcd78ee6fdd9e8343230b23df",
+  "python": "3.11.6 (tags/v3.11.6:8b6ee5b, Oct  2 2023, 14:57:12) [MSC v.1935 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "libraries": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1",
+    "xgboost": "3.2.0",
+    "joblib": "1.6.0",
+    "matplotlib": "3.11.2"
+  },
+  "data_files": [
+    {
+      "file": "C:\\datasets\\WESAD\\S2\\S2.pkl",
+      "sha256": "36ef5e8afc0f91998eefba7c12fc9fa97b7b07198cbec0126917d7abb436ca23",
+      "bytes": 975117737
+    },
+    {
+      "file": "C:\\datasets\\WESAD\\S3\\S3.pkl",
+      "sha256": "5c8bd4a82af029c082e610bca28a011fca2ae3b23e14a18458ebb5990be4015e",
+      "bytes": 1031507132
+    },
+    {
+      "file": "C:\\datasets\\WESAD\\S4\\S4.pkl",
+      "sha256": "0f0740a79388723360ff12b4f47c465665ea7827d1399b18ac43908daac17900",
+      "bytes": 1034344388
+    },
+    {
+      "file": "C:\\datasets\\WESAD\\S5\\S5.pkl",
+      "sha256": "74bd187e3a9c1ca4259af52d04974c8e7ff7dc49ceea7e269f499ca98fe6d8ec",
+      "bytes": 993435543
+    },
+    {
+      "file": "C:\\datasets\\WESAD\\S6\\S6.pkl",
+      "sha256": "8aa9bf57b69f4fe5bce06c550230857627c3f05befa2f787151646bb29ee8f62",
+      "bytes": 1123292444
+    },
+    {
+      "file": "C:\\datasets\\WESAD\\S7\\S7.pkl",
+      "sha256": "9cb62705ae7f53dca327a9a00a6f9fdabf5128d449174ab37594658e912cb6d8",
+      "bytes": 829424437
+    },
+    {
+      "file": "C:\\datasets\\WESAD\\S8\\S8.pkl",
+      "sha256": "dac1141dac11d56b3641be982f45da63f05e9d74154f59e6ea0cdcf47fc72710",
+      "bytes": 869469022
+    },
+    {
+      "file": "C:\\datasets\\WESAD\\S9\\S9.pkl",
+      "sha256": "24dc004e201bd541f092989443f0a29ebf89e4a227a80bb6b6d1987255039544",
+      "bytes": 832647582
+    },
+    {
+      "file": "C:\\datasets\\WESAD\\S10\\S10.pkl",
+      "sha256": "41da29c68366f33650f3d41a6be78107bf6942929c3bb0ef46238078ddddee9f",
+      "bytes": 867178991
+    },
+    {
+      "file": "C:\\datasets\\WESAD\\S11\\S11.pkl",
+      "sha256": "f39557a8d660b10154936f51debf2926aea7ebb9b26a168858f59502f914d8f7",
+      "bytes": 831090213
+    },
+    {
+      "file": "C:\\datasets\\WESAD\\S13\\S13.pkl",
+      "sha256": "772fb490f19b279e49367271e009fc10d3a3ca1e3456df0d68b9063a73992066",
+      "bytes": 885309681
+    },
+    {
+      "file": "C:\\datasets\\WESAD\\S14\\S14.pkl",
+      "sha256": "e7bd33c57538319a25c6d53e6a9fb6c1abd12800cfc64bb63275d89de8d2fd60",
+      "bytes": 881137147
+    },
+    {
+      "file": "C:\\datasets\\WESAD\\S15\\S15.pkl",
+      "sha256": "1ea573bc6b45ba79fb134f9460d691b86176f60dce23420dc514c28017d4049c",
+      "bytes": 827715045
+    },
+    {
+      "file": "C:\\datasets\\WESAD\\S16\\S16.pkl",
+      "sha256": "f65cf40cada75c3e9f5813276d7dcc90359c3b06dec41d68656c0a6e61dbc575",
+      "bytes": 898980304
+    },
+    {
+      "file": "C:\\datasets\\WESAD\\S17\\S17.pkl",
+      "sha256": "3315796a75227d54d7b0056736f671484fd2fb85afffa65818fd76aeff2920fa",
+      "bytes": 946975319
+    }
+  ],
+  "derived_feature_files": [
+    {
+      "file": "results\\metrics\\features_w30.csv",
+      "sha256": "c1f761f9fa0a883c7d94798bcf55576d255490257d4e0526262f2f74d657e1d8"
+    },
+    {
+      "file": "results\\metrics\\features_eda_w30.csv",
+      "sha256": "8d83809aa544a2a39f958768ad6834e8ff3acbd3d8a251ff77f9acff39f8bd57"
+    },
+    {
+      "file": "results\\metrics\\stepc_eda_gain_offset.csv",
+      "sha256": "7c756c0bad2acb25f763eed32d99ebeec73337065b2c123bfed7edeffc31824b"
+    },
+    {
+      "file": "results\\metrics\\stepc_condition_order.csv",
+      "sha256": "6bbf6204d7a6825a422ec475c845c1c5e1a38d68c48bb7ba892b47d878ca74a7"
+    }
+  ],
+  "model_files": [
+    {
+      "file": "stress_lr_D_w30.json",
+      "sha256": "8be23dcb34d9adba160d866383e437ef6a48c91f1f691f117e1a3c472e775b32"
+    },
+    {
+      "file": "stress_lr_D_w30.joblib",
+      "sha256": "8284ead045c972079a69b0cccf0053d2f386e73d9a2e374ee1cf4427c83da7b8"
+    },
+    {
+      "file": "feature_spec.json",
+      "sha256": "7d3e836c2ceb0e9b4f6056033ab8a33b95c68ffb36ae7a2f64f9831afc1be734"
+    }
+  ],
+  "deployment_model": {
+    "config": "D",
+    "features": [
+      "hr_mean",
+      "eda_slope_rel",
+      "scr_count_rel"
+    ],
+    "window_s": 30,
+    "step_s": 5,
+    "trained_on": "all 15 WESAD subjects, scored windows only (calibration windows excluded)",
+    "n_training_windows": 5509,
+    "inner_cv": "GroupKFold(7) by subject over all 15",
+    "C_chosen": 0.001,
+    "C_grid": [
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0
+    ],
+    "C_at_grid_edge": true,
+    "inner_mean_pr_auc": 0.9093878899884011,
+    "inner_oof_f1_op1": 0.8058378941881679,
+    "threshold_op1": 0.5160913415113687,
+    "threshold_op2": 0.5189178207320404,
+    "inner_cv_m_of_n_not_used": [
+      3,
+      5
+    ],
+    "shipped_m_of_n": [
+      4,
+      5
+    ],
+    "resubstitution_metrics_NOT_an_estimate": {
+      "pr_auc": 0.916151363264707,
+      "roc_auc": 0.9443019438568955,
+      "f1_op1": 0.8227881333683381
+    },
+    "held_out_estimate": "NONE. Expected performance = LOSO result of config D below."
+  },
+  "loso_metrics": [
+    {
+      "config": "R",
+      "op": "OP1",
+      "f1_mean": 0.8405752874583169,
+      "f1_sd": 0.13190115259774243,
+      "f1_ci_low": 0.7685886866997665,
+      "f1_ci_high": 0.9029274047033456,
+      "pr_auc_mean": 0.9479913135675502,
+      "pr_auc_ci_low": 0.9166753252022423,
+      "pr_auc_ci_high": 0.9758278873754895,
+      "roc_auc_mean": 0.9765215903864112,
+      "sensitivity_mean": 0.9268765449451214,
+      "specificity_mean": 0.8204600679841169,
+      "precision_mean": 0.8024050314583653,
+      "balanced_accuracy_mean": 0.8736683064646189,
+      "fa_windows_per_h_mean": 129.2687510514359,
+      "fa_events_per_h_mean": 16.866957667817946,
+      "worst_subject": "S13",
+      "worst_f1": 0.5739910313901345,
+      "latency_median_s": 29.092857142857156
+    },
+    {
+      "config": "R",
+      "op": "OP2_spec90",
+      "f1_mean": 0.778747809783224,
+      "f1_sd": 0.17319457254854445,
+      "f1_ci_low": 0.6914750782488951,
+      "f1_ci_high": 0.8580266468003095,
+      "pr_auc_mean": 0.9479913135675502,
+      "pr_auc_ci_low": 0.9166753252022423,
+      "pr_auc_ci_high": 0.9758278873754895,
+      "roc_auc_mean": 0.9765215903864112,
+      "sensitivity_mean": 0.7794450190693617,
+      "specificity_mean": 0.8891873254392464,
+      "precision_mean": 0.8596627311626182,
+      "balanced_accuracy_mean": 0.834316172254304,
+      "fa_windows_per_h_mean": 79.78512568374268,
+      "fa_events_per_h_mean": 12.590104389204031,
+      "worst_subject": "S2",
+      "worst_f1": 0.40522875816993464,
+      "latency_median_s": 29.092857142857156
+    },
+    {
+      "config": "R",
+      "op": "OP1_smooth4of5",
+      "f1_mean": 0.8343743647122762,
+      "f1_sd": 0.13617778677784972,
+      "f1_ci_low": 0.7629206136536192,
+      "f1_ci_high": 0.8987485591738793,
+      "pr_auc_mean": 0.9479913135675502,
+      "pr_auc_ci_low": 0.9166753252022423,
+      "pr_auc_ci_high": 0.9758278873754895,
+      "roc_auc_mean": 0.9765215903864112,
+      "sensitivity_mean": 0.8752970847249447,
+      "specificity_mean": 0.8605716842167617,
+      "precision_mean": 0.8441981385325251,
+      "balanced_accuracy_mean": 0.8679343844708531,
+      "fa_windows_per_h_mean": 100.3883873639316,
+      "fa_events_per_h_mean": 8.61730669602244,
+      "worst_subject": "S2",
+      "worst_f1": 0.5964912280701754,
+      "latency_median_s": 44.092857142857156
+    },
+    {
+      "config": "D",
+      "op": "OP1",
+      "f1_mean": 0.7793540133178417,
+      "f1_sd": 0.21650728084098173,
+      "f1_ci_low": 0.6630851817369835,
+      "f1_ci_high": 0.8713359556248494,
+      "pr_auc_mean": 0.9506862508300541,
+      "pr_auc_ci_low": 0.9218205753704186,
+      "pr_auc_ci_high": 0.9762705498408213,
+      "roc_auc_mean": 0.9740930544388394,
+      "sensitivity_mean": 0.7986404389429964,
+      "specificity_mean": 0.8917402362166489,
+      "precision_mean": 0.8457137346287131,
+      "balanced_accuracy_mean": 0.8451903375798226,
+      "fa_windows_per_h_mean": 77.94702992401281,
+      "fa_events_per_h_mean": 18.69085447726965,
+      "worst_subject": "S2",
+      "worst_f1": 0.13953488372093023,
+      "latency_median_s": 29.092857142857156
+    },
+    {
+      "config": "D",
+      "op": "OP2_spec90",
+      "f1_mean": 0.7782662865089126,
+      "f1_sd": 0.2175482106454214,
+      "f1_ci_low": 0.6596027577292972,
+      "f1_ci_high": 0.8705304614982134,
+      "pr_auc_mean": 0.9506862508300541,
+      "pr_auc_ci_low": 0.9218205753704186,
+      "pr_auc_ci_high": 0.9762705498408213,
+      "roc_auc_mean": 0.9740930544388394,
+      "sensitivity_mean": 0.8016466317087442,
+      "specificity_mean": 0.8856510122191094,
+      "precision_mean": 0.8444116183696112,
+      "balanced_accuracy_mean": 0.8436488219639268,
+      "fa_windows_per_h_mean": 82.3312712022412,
+      "fa_events_per_h_mean": 18.295302213311157,
+      "worst_subject": "S2",
+      "worst_f1": 0.13953488372093023,
+      "latency_median_s": 29.092857142857156
+    },
+    {
+      "config": "D",
+      "op": "OP1_smooth4of5",
+      "f1_mean": 0.7622104624064796,
+      "f1_sd": 0.24425540454037578,
+      "f1_ci_low": 0.628670488962144,
+      "f1_ci_high": 0.8628627087887314,
+      "pr_auc_mean": 0.9506862508300541,
+      "pr_auc_ci_low": 0.9218205753704186,
+      "pr_auc_ci_high": 0.9762705498408213,
+      "roc_auc_mean": 0.9740930544388394,
+      "sensitivity_mean": 0.7445768064930238,
+      "specificity_mean": 0.9294362778906399,
+      "precision_mean": 0.8946812900189223,
+      "balanced_accuracy_mean": 0.8370065421918319,
+      "fa_windows_per_h_mean": 50.80587991873931,
+      "fa_events_per_h_mean": 7.646955192234115,
+      "worst_subject": "S2",
+      "worst_f1": 0.03333333333333333,
+      "latency_median_s": 44.092857142857156
+    }
+  ],
+  "reproduction_of_step_c": {
+    "R_OP1_max_abs_f1_diff_vs_stepc": 0.0,
+    "R_OP2_spec90_max_abs_f1_diff_vs_stepc": 0.0,
+    "R_smoothed_max_abs_f1_diff_vs_stepc": 0.0,
+    "D_OP1_max_abs_f1_diff_vs_stepc": 0.0,
+    "D_OP2_spec90_max_abs_f1_diff_vs_stepc": 0.0,
+    "D_smoothed_max_abs_f1_diff_vs_stepc": 0.0,
+    "R_max_abs_score_diff_vs_stepc": 0.0
+  },
+  "not_validated": "no prototype data (finger EDA in mV, fingertip PPG); IEC approval pending"
+}

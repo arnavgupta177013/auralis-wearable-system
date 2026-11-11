@@ -1,0 +1,79 @@
+{
+  "reproduction": {
+    "R_OP1_max_abs_f1_diff_vs_stepc": 0.0,
+    "R_OP2_spec90_max_abs_f1_diff_vs_stepc": 0.0,
+    "R_smoothed_max_abs_f1_diff_vs_stepc": 0.0,
+    "D_OP1_max_abs_f1_diff_vs_stepc": 0.0,
+    "D_OP2_spec90_max_abs_f1_diff_vs_stepc": 0.0,
+    "D_smoothed_max_abs_f1_diff_vs_stepc": 0.0,
+    "R_max_abs_score_diff_vs_stepc": 0.0
+  },
+  "deployment": {
+    "feature_order": [
+      "hr_mean",
+      "eda_slope_rel",
+      "scr_count_rel"
+    ],
+    "imputer_medians": [
+      78.68363944216803,
+      -0.00080338575156357,
+      1.0
+    ],
+    "scaler_means": [
+      82.53536977990555,
+      0.002375981078248997,
+      2.492829914685061
+    ],
+    "scaler_sds": [
+      17.92187147485981,
+      0.12645145121760146,
+      2.9123134401573596
+    ],
+    "weights_standardised": [
+      0.7358512019926187,
+      0.012381664069492758,
+      0.5834364527865878
+    ],
+    "bias_standardised": -0.210543258740596,
+    "weights_folded": [
+      0.04105883713231878,
+      0.09791634615711936,
+      0.20033436124755286
+    ],
+    "bias_folded": -4.098981700232388,
+    "C": 0.001,
+    "threshold_op1": 0.5160913415113687,
+    "threshold_op2": 0.5189178207320404,
+    "inner_cv_choice_of_m_of_n_not_used": [
+      3,
+      5
+    ]
+  },
+  "deployment_inner": {
+    "inner_mean_pr_auc": 0.9093878899884011,
+    "inner_oof_f1_op1": 0.8058378941881679,
+    "resubstitution_NOT_an_estimate": {
+      "pr_auc": 0.916151363264707,
+      "roc_auc": 0.9443019438568955,
+      "f1_op1": 0.8227881333683381
+    }
+  },
+  "roundtrip": {
+    "n_roundtrip_windows": 340,
+    "n_real_windows_with_nan": 0,
+    "n_synthetic_nan_rows": 40,
+    "all_windows_json_max_abs_diff": 3.3306690738754696e-16,
+    "all_windows_json_op1_disagreements": 0,
+    "all_windows_float32_op1_disagreements": 0,
+    "all_windows_float32_max_abs_prob_diff": 2.1276747597109846e-07,
+    "n_all_windows": 5509,
+    "fresh_process": {
+      "n_windows": 340,
+      "n_with_nan": 40,
+      "joblib_exact_match": true,
+      "json_max_abs_diff": 3.3306690738754696e-16,
+      "float32_op1_decision_disagreements": 0,
+      "wrong_order_inputs_rejected": 11
+    }
+  }
+}

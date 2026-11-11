@@ -1,0 +1,46 @@
+{
+  "n_subjects": 15,
+  "step_s": 5,
+  "purity": 0.9,
+  "calib_min": 5,
+  "streaming_max_abs_err": 0.0,
+  "windows": {
+    "20": {
+      "total": 6479,
+      "calib": 840,
+      "excluded_overlap_calib": 907,
+      "scored": 5572,
+      "scored_by_label": {
+        "baseline": 2565,
+        "stress": 1942,
+        "amusement": 1065
+      },
+      "scored_stress_fraction": 0.3485
+    },
+    "30": {
+      "total": 6421,
+      "calib": 810,
+      "excluded_overlap_calib": 912,
+      "scored": 5509,
+      "scored_by_label": {
+        "baseline": 2541,
+        "stress": 1923,
+        "amusement": 1045
+      },
+      "scored_stress_fraction": 0.3491
+    },
+    "60": {
+      "total": 6196,
+      "calib": 720,
+      "excluded_overlap_calib": 920,
+      "scored": 5276,
+      "scored_by_label": {
+        "baseline": 2457,
+        "stress": 1848,
+        "amusement": 971
+      },
+      "scored_stress_fraction": 0.3503
+    }
+  },
+  "build_seconds": 101.9
+}

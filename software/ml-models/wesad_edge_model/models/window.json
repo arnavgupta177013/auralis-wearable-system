@@ -1,0 +1,14 @@
+{
+  "window_s": 30,
+  "step_s": 5,
+  "lengths_s": [
+    20,
+    30,
+    60
+  ],
+  "grid": "windows start at 0, 5, 10, ... s from the start of the recording; features use only samples in [t_start, t_end) after one causal filter pass over the whole stream",
+  "smoothing_m_of_n": [
+    4,
+    5
+  ]
+}

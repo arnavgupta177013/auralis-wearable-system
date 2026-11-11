@@ -1,0 +1,6 @@
+{
+  "T_AC": 0.087148607162538,
+  "HR_AGREE": 0.32960427438061085,
+  "n_tune_good_windows": 2794,
+  "rule": "T_AC = 1st percentile of r_ac, HR_AGREE = 99th percentile of hr_disagree, over TUNE good windows passing G0 and G1"
+}

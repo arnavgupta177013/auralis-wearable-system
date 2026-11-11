@@ -1,0 +1,282 @@
+{
+  "version": "stepc-1",
+  "order": [
+    "hr_mean",
+    "hr_std",
+    "rmssd",
+    "sdnn",
+    "pnn50",
+    "scl_mean",
+    "eda_std",
+    "eda_slope",
+    "eda_slope_rel",
+    "scr_count",
+    "scr_count_rel",
+    "scr_amp_mean",
+    "temp_mean",
+    "temp_slope",
+    "acc_mag_mean",
+    "motion_energy"
+  ],
+  "deployable_pool_D": [
+    "hr_mean",
+    "hr_std",
+    "eda_slope",
+    "scr_count",
+    "temp_slope",
+    "acc_mag_mean",
+    "motion_energy"
+  ],
+  "window": {
+    "lengths_s": [
+      20,
+      30,
+      60
+    ],
+    "step_s": 5,
+    "grid": "windows start at 0, 5, 10, ... s from the start of the recording; features use only samples in [t_start, t_end) after one causal filter pass over the whole stream"
+  },
+  "personal_z": "(x - mean_cal) / max(sd_cal, floor); mean_cal, sd_cal (ddof 1) over the wearer's calibration windows (windows fully inside the first 5 min of rest, same length and step); floor = median sd_cal of the TRAINING subjects (a model constant shipped with the model)",
+  "features": [
+    {
+      "index": 0,
+      "window_s": [
+        20,
+        30,
+        60
+      ],
+      "step_s": 5,
+      "name": "hr_mean",
+      "unit": "bpm",
+      "input": "BVP",
+      "fs_hz": 64,
+      "role": "deployable",
+      "definition": "BVP 64 Hz; causal Butterworth band-pass 0.7-3.5 Hz, order 3 per edge, SOS with state carried across the stream (steady-state start). In the window: scipy find_peaks(distance = int(0.33*fs) samples, prominence = 0.3 x SD of the filtered window); peak time refined by a 3-point parabola; IBI = successive differences; keep 0.33 s < IBI < 1.5 s; drop IBIs with |IBI - median| >= 0.3 x median; need >= 5 peaks and >= 4 IBIs else NaN; HR = 60 / IBI; hr_mean = mean of HR over the kept IBIs"
+    },
+    {
+      "index": 1,
+      "window_s": [
+        20,
+        30,
+        60
+      ],
+      "step_s": 5,
+      "name": "hr_std",
+      "unit": "bpm",
+      "input": "BVP",
+      "fs_hz": 64,
+      "role": "deployable",
+      "definition": "BVP 64 Hz; causal Butterworth band-pass 0.7-3.5 Hz, order 3 per edge, SOS with state carried across the stream (steady-state start). In the window: scipy find_peaks(distance = int(0.33*fs) samples, prominence = 0.3 x SD of the filtered window); peak time refined by a 3-point parabola; IBI = successive differences; keep 0.33 s < IBI < 1.5 s; drop IBIs with |IBI - median| >= 0.3 x median; need >= 5 peaks and >= 4 IBIs else NaN; HR = 60 / IBI; hr_std = population SD (ddof 0) of HR over the kept IBIs"
+    },
+    {
+      "index": 2,
+      "window_s": [
+        20,
+        30,
+        60
+      ],
+      "step_s": 5,
+      "name": "rmssd",
+      "unit": "ms",
+      "input": "BVP",
+      "fs_hz": 64,
+      "role": "excluded_hrv",
+      "definition": "BVP 64 Hz; causal Butterworth band-pass 0.7-3.5 Hz, order 3 per edge, SOS with state carried across the stream (steady-state start). In the window: scipy find_peaks(distance = int(0.33*fs) samples, prominence = 0.3 x SD of the filtered window); peak time refined by a 3-point parabola; IBI = successive differences; keep 0.33 s < IBI < 1.5 s; drop IBIs with |IBI - median| >= 0.3 x median; need >= 5 peaks and >= 4 IBIs else NaN; HR = 60 / IBI; RMS of successive IBI differences (ms). EXCLUDED: does not track chest ECG (Step A)"
+    },
+    {
+      "index": 3,
+      "window_s": [
+        20,
+        30,
+        60
+      ],
+      "step_s": 5,
+      "name": "sdnn",
+      "unit": "ms",
+      "input": "BVP",
+      "fs_hz": 64,
+      "role": "excluded_hrv",
+      "definition": "BVP 64 Hz; causal Butterworth band-pass 0.7-3.5 Hz, order 3 per edge, SOS with state carried across the stream (steady-state start). In the window: scipy find_peaks(distance = int(0.33*fs) samples, prominence = 0.3 x SD of the filtered window); peak time refined by a 3-point parabola; IBI = successive differences; keep 0.33 s < IBI < 1.5 s; drop IBIs with |IBI - median| >= 0.3 x median; need >= 5 peaks and >= 4 IBIs else NaN; HR = 60 / IBI; SD (ddof 0) of kept IBIs (ms). EXCLUDED (Step A)"
+    },
+    {
+      "index": 4,
+      "window_s": [
+        20,
+        30,
+        60
+      ],
+      "step_s": 5,
+      "name": "pnn50",
+      "unit": "fraction",
+      "input": "BVP",
+      "fs_hz": 64,
+      "role": "excluded_hrv",
+      "definition": "BVP 64 Hz; causal Butterworth band-pass 0.7-3.5 Hz, order 3 per edge, SOS with state carried across the stream (steady-state start). In the window: scipy find_peaks(distance = int(0.33*fs) samples, prominence = 0.3 x SD of the filtered window); peak time refined by a 3-point parabola; IBI = successive differences; keep 0.33 s < IBI < 1.5 s; drop IBIs with |IBI - median| >= 0.3 x median; need >= 5 peaks and >= 4 IBIs else NaN; HR = 60 / IBI; fraction of |successive IBI differences| > 50 ms. EXCLUDED (Step A)"
+    },
+    {
+      "index": 5,
+      "window_s": [
+        20,
+        30,
+        60
+      ],
+      "step_s": 5,
+      "name": "scl_mean",
+      "unit": "uS",
+      "input": "EDA",
+      "fs_hz": 4,
+      "role": "reference_absolute",
+      "definition": "EDA 4 Hz (uS); causal Butterworth low-pass 1.0 Hz, order 2, SOS with state; phasic = low-passed EDA - tonic, tonic = causal EMA with tau 8.0 s (a = 1 - exp(-1/(tau*fs)), fs 4 Hz); scl_mean = mean of the tonic in the window. Absolute level"
+    },
+    {
+      "index": 6,
+      "window_s": [
+        20,
+        30,
+        60
+      ],
+      "step_s": 5,
+      "name": "eda_std",
+      "unit": "uS",
+      "input": "EDA",
+      "fs_hz": 4,
+      "role": "reference_absolute",
+      "definition": "EDA 4 Hz (uS); causal Butterworth low-pass 1.0 Hz, order 2, SOS with state; SD (ddof 0) of the low-passed EDA in the window. Gain-dependent"
+    },
+    {
+      "index": 7,
+      "window_s": [
+        20,
+        30,
+        60
+      ],
+      "step_s": 5,
+      "name": "eda_slope",
+      "unit": "uS/s",
+      "input": "EDA",
+      "fs_hz": 4,
+      "role": "deployable",
+      "definition": "EDA 4 Hz (uS); causal Butterworth low-pass 1.0 Hz, order 2, SOS with state; least-squares slope of the low-passed EDA vs time (s) over the window. Offset-invariant, gain-DEPENDENT"
+    },
+    {
+      "index": 8,
+      "window_s": [
+        20,
+        30,
+        60
+      ],
+      "step_s": 5,
+      "name": "eda_slope_rel",
+      "unit": "1/s (calibration SDs per s)",
+      "input": "EDA",
+      "fs_hz": 4,
+      "role": "deployable_redefined",
+      "definition": "eda_slope / sigma_lp_cal, sigma_lp_cal = SD (ddof 0) of the low-passed EDA samples over the calibration period; wearer's calibration period = first 5 min of the rest (baseline) condition; the per-wearer constant is computed from the stream samples in that period and stored on the device. Gain- and offset-invariant"
+    },
+    {
+      "index": 9,
+      "window_s": [
+        20,
+        30,
+        60
+      ],
+      "step_s": 5,
+      "name": "scr_count",
+      "unit": "count per window",
+      "input": "EDA",
+      "fs_hz": 4,
+      "role": "deployable",
+      "definition": "EDA 4 Hz (uS); causal Butterworth low-pass 1.0 Hz, order 2, SOS with state; phasic = low-passed EDA - tonic, tonic = causal EMA with tau 8.0 s (a = 1 - exp(-1/(tau*fs)), fs 4 Hz); number of find_peaks(phasic, prominence >= 0.01 uS, distance >= 1 s) in the window. Offset-invariant, gain-DEPENDENT (fixed absolute prominence)"
+    },
+    {
+      "index": 10,
+      "window_s": [
+        20,
+        30,
+        60
+      ],
+      "step_s": 5,
+      "name": "scr_count_rel",
+      "unit": "count per window",
+      "input": "EDA",
+      "fs_hz": 4,
+      "role": "deployable_redefined",
+      "definition": "as scr_count but prominence >= 1.0 x sigma_ph_cal, sigma_ph_cal = SD (ddof 0) of the phasic samples over the calibration period; wearer's calibration period = first 5 min of the rest (baseline) condition; the per-wearer constant is computed from the stream samples in that period and stored on the device. Gain- and offset-invariant"
+    },
+    {
+      "index": 11,
+      "window_s": [
+        20,
+        30,
+        60
+      ],
+      "step_s": 5,
+      "name": "scr_amp_mean",
+      "unit": "uS",
+      "input": "EDA",
+      "fs_hz": 4,
+      "role": "reference_absolute",
+      "definition": "mean prominence of the scr_count peaks (0 if none). Gain-dependent absolute amplitude"
+    },
+    {
+      "index": 12,
+      "window_s": [
+        20,
+        30,
+        60
+      ],
+      "step_s": 5,
+      "name": "temp_mean",
+      "unit": "degC",
+      "input": "TEMP",
+      "fs_hz": 1,
+      "role": "reference_absolute",
+      "definition": "TEMP 4 Hz (degC) -> 1 Hz by block mean of 4 samples (causal); mean over the window. Absolute level (sensor offset, session drift)"
+    },
+    {
+      "index": 13,
+      "window_s": [
+        20,
+        30,
+        60
+      ],
+      "step_s": 5,
+      "name": "temp_slope",
+      "unit": "degC/s",
+      "input": "TEMP",
+      "fs_hz": 1,
+      "role": "deployable",
+      "definition": "TEMP 4 Hz (degC) -> 1 Hz by block mean of 4 samples (causal); least-squares slope vs time (s) over the window"
+    },
+    {
+      "index": 14,
+      "window_s": [
+        20,
+        30,
+        60
+      ],
+      "step_s": 5,
+      "name": "acc_mag_mean",
+      "unit": "g",
+      "input": "ACC",
+      "fs_hz": 32,
+      "role": "deployable",
+      "definition": "ACC 32 Hz, raw / 64 -> g; magnitude = sqrt(x^2 + y^2 + z^2); mean of the magnitude over the window"
+    },
+    {
+      "index": 15,
+      "window_s": [
+        20,
+        30,
+        60
+      ],
+      "step_s": 5,
+      "name": "motion_energy",
+      "unit": "g",
+      "input": "ACC",
+      "fs_hz": 32,
+      "role": "deployable",
+      "definition": "ACC 32 Hz, raw / 64 -> g; magnitude = sqrt(x^2 + y^2 + z^2); population SD (ddof 0) of the magnitude over the window"
+    }
+  ]
+}

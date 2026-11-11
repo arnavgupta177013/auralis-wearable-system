@@ -1,0 +1,37 @@
+{
+  "config": "LR relative-only [-hr_std -motion -temp_slope]",
+  "window_s": 30,
+  "features": [
+    "hr_mean",
+    "eda_slope",
+    "scr_count"
+  ],
+  "macro_f1_mean": 0.46346445717848533,
+  "macro_f1_sd": 0.07970933921446463,
+  "macro_f1_ci": [
+    0.42181360641840426,
+    0.5026102796520125
+  ],
+  "accuracy_mean": 0.5005973085848772,
+  "balanced_accuracy_mean": 0.5474097119949713,
+  "worst_subject": "S13",
+  "worst_macro_f1": 0.28697824037629865,
+  "pooled_confusion_rows_true_cols_pred_[baseline,stress,amusement]": [
+    [
+      501,
+      415,
+      1625
+    ],
+    [
+      233,
+      1635,
+      55
+    ],
+    [
+      328,
+      92,
+      625
+    ]
+  ],
+  "pooled_macro_f1": 0.4852213182178797
+}
