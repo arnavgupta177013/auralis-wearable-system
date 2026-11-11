@@ -1,0 +1,117 @@
+{
+  "task": "binary",
+  "window_s": 60,
+  "step_s": 15,
+  "purity": 0.9,
+  "calibration_min": 5,
+  "n_subjects": 15,
+  "n_windows_scored": 1806,
+  "n_calibration_windows": 255,
+  "class_counts_scored": {
+    "1": 869,
+    "2": 614,
+    "3": 323
+  },
+  "resting_hr_median_by_subject_bpm": {
+    "S10": 99.6,
+    "S11": 75.3,
+    "S13": 87.5,
+    "S14": 73.3,
+    "S15": 83.6,
+    "S16": 69.0,
+    "S17": 67.3,
+    "S2": 73.6,
+    "S3": 58.8,
+    "S4": 61.4,
+    "S5": 63.9,
+    "S6": 72.5,
+    "S7": 72.6,
+    "S8": 73.1,
+    "S9": 78.9
+  },
+  "resting_hr_range_across_subjects_bpm": [
+    58.8,
+    99.6
+  ],
+  "pooled": {
+    "rule_universal": {
+      "f1_pooled": 0.679,
+      "confusion_matrix": [
+        [
+          936,
+          256
+        ],
+        [
+          167,
+          447
+        ]
+      ]
+    },
+    "rule_personal": {
+      "f1_pooled": 0.738,
+      "confusion_matrix": [
+        [
+          1000,
+          192
+        ],
+        [
+          143,
+          471
+        ]
+      ]
+    },
+    "rf_universal": {
+      "f1_pooled": 0.906,
+      "confusion_matrix": [
+        [
+          1134,
+          58
+        ],
+        [
+          57,
+          557
+        ]
+      ]
+    },
+    "rf_personal": {
+      "f1_pooled": 0.878,
+      "confusion_matrix": [
+        [
+          1136,
+          56
+        ],
+        [
+          90,
+          524
+        ]
+      ]
+    },
+    "xgb_universal": {
+      "f1_pooled": 0.876,
+      "confusion_matrix": [
+        [
+          1109,
+          83
+        ],
+        [
+          71,
+          543
+        ]
+      ]
+    },
+    "xgb_personal": {
+      "f1_pooled": 0.854,
+      "confusion_matrix": [
+        [
+          1099,
+          93
+        ],
+        [
+          87,
+          527
+        ]
+      ]
+    }
+  },
+  "note": "WESAD stress = lab stressor (TSST). Not panic. Wrist signals only."
+}

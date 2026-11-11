@@ -1,0 +1,49 @@
+{
+  "host_compiler": "msvc",
+  "float_real300": {
+    "n_rows": 300,
+    "sizeof_real": 4,
+    "max_abs_p_diff_vs_p_ref": 1.0443218967370882e-07,
+    "alert_differs_vs_alert_op1_ref": 0,
+    "min_abs_logit_margin": 0.004566413023231811
+  },
+  "float_synthetic_nan40": {
+    "n_rows": 40,
+    "sizeof_real": 4,
+    "max_abs_p_diff_vs_p_ref": 5.313168699450088e-08,
+    "alert_differs_vs_alert_op1_ref": 0,
+    "min_abs_logit_margin": 0.06676020040297669
+  },
+  "float_smoother": {
+    "n": 700,
+    "differs_vs_runner_smooth": 0
+  },
+  "float_bench_pc": "2.900000 ns_per_window_alert (PC, 200000 x 300 calls, sink 19600000)",
+  "double_real300": {
+    "n_rows": 300,
+    "sizeof_real": 8,
+    "max_abs_p_diff_vs_p_ref": 3.3306690738754696e-16,
+    "alert_differs_vs_alert_op1_ref": 0,
+    "min_abs_logit_margin": 0.004566293507574884
+  },
+  "double_synthetic_nan40": {
+    "n_rows": 40,
+    "sizeof_real": 8,
+    "max_abs_p_diff_vs_p_ref": 1.6653345369377348e-16,
+    "alert_differs_vs_alert_op1_ref": 0,
+    "min_abs_logit_margin": 0.06676033451791206
+  },
+  "double_smoother": {
+    "n": 700,
+    "differs_vs_runner_smooth": 0
+  },
+  "double_bench_pc": "3.400000 ns_per_window_alert (PC, 200000 x 300 calls, sink 19600000)",
+  "status": "RUN on this PC (host compiler); NOT run on an ESP32",
+  "xtensa": "cross-compiled only (-Os -mlongcalls), NOT run: xtensa-esp-elf-gcc.exe (crosstool-NG esp-13.2.0_20240530) 13.2.0",
+  "xtensa_sections_bytes": {
+    ".literal": 28,
+    ".text": 154,
+    ".data": 0,
+    ".bss": 0
+  }
+}

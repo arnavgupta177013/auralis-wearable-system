@@ -1,0 +1,320 @@
+{
+  "windows": {
+    "20": {
+      "n_windows": 6479,
+      "chest_valid": 6076,
+      "chest_invalid": 403,
+      "wrist_hr_nan": 1,
+      "paired_hr": 6075,
+      "checks": {
+        "hr_mean/baseline": {
+          "H1_pearson": true,
+          "H2_bias": true,
+          "H3_loa": false
+        },
+        "hr_mean/stress": {
+          "H1_pearson": false,
+          "H2_bias": true,
+          "H3_loa": false
+        },
+        "hr_mean/amusement": {
+          "H1_pearson": true,
+          "H2_bias": true,
+          "H3_loa": false
+        },
+        "hr_mean/all": {
+          "H4_rmcorr": true
+        },
+        "rmssd/baseline": {
+          "V1_spearman": false,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "rmssd/stress": {
+          "V1_spearman": false,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "rmssd/amusement": {
+          "V1_spearman": true,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "rmssd/all": {
+          "V2_rmcorr": false
+        },
+        "sdnn/baseline": {
+          "V1_spearman": true,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "sdnn/stress": {
+          "V1_spearman": false,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "sdnn/amusement": {
+          "V1_spearman": true,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "sdnn/all": {
+          "V2_rmcorr": true
+        },
+        "pnn50/baseline": {
+          "V1_spearman": true,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "pnn50/stress": {
+          "V1_spearman": false,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "pnn50/amusement": {
+          "V1_spearman": true,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "pnn50/all": {
+          "V2_rmcorr": false
+        }
+      },
+      "hr_passes": false,
+      "hrv_tracks_reference": {
+        "rmssd": false,
+        "sdnn": false,
+        "pnn50": false
+      },
+      "hrv_agrees_in_value": {
+        "rmssd": false,
+        "sdnn": false,
+        "pnn50": false
+      },
+      "verdict": "keep HR only (HR not verified: keep with caveats)"
+    },
+    "30": {
+      "n_windows": 6421,
+      "chest_valid": 6064,
+      "chest_invalid": 357,
+      "wrist_hr_nan": 0,
+      "paired_hr": 6064,
+      "checks": {
+        "hr_mean/baseline": {
+          "H1_pearson": true,
+          "H2_bias": true,
+          "H3_loa": false
+        },
+        "hr_mean/stress": {
+          "H1_pearson": false,
+          "H2_bias": true,
+          "H3_loa": false
+        },
+        "hr_mean/amusement": {
+          "H1_pearson": true,
+          "H2_bias": true,
+          "H3_loa": false
+        },
+        "hr_mean/all": {
+          "H4_rmcorr": true
+        },
+        "rmssd/baseline": {
+          "V1_spearman": false,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "rmssd/stress": {
+          "V1_spearman": false,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "rmssd/amusement": {
+          "V1_spearman": true,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "rmssd/all": {
+          "V2_rmcorr": false
+        },
+        "sdnn/baseline": {
+          "V1_spearman": true,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "sdnn/stress": {
+          "V1_spearman": false,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "sdnn/amusement": {
+          "V1_spearman": true,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "sdnn/all": {
+          "V2_rmcorr": true
+        },
+        "pnn50/baseline": {
+          "V1_spearman": true,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "pnn50/stress": {
+          "V1_spearman": false,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "pnn50/amusement": {
+          "V1_spearman": true,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "pnn50/all": {
+          "V2_rmcorr": false
+        }
+      },
+      "hr_passes": false,
+      "hrv_tracks_reference": {
+        "rmssd": false,
+        "sdnn": false,
+        "pnn50": false
+      },
+      "hrv_agrees_in_value": {
+        "rmssd": false,
+        "sdnn": false,
+        "pnn50": false
+      },
+      "verdict": "keep HR only (HR not verified: keep with caveats)"
+    },
+    "60": {
+      "n_windows": 6196,
+      "chest_valid": 5939,
+      "chest_invalid": 257,
+      "wrist_hr_nan": 0,
+      "paired_hr": 5939,
+      "checks": {
+        "hr_mean/baseline": {
+          "H1_pearson": true,
+          "H2_bias": true,
+          "H3_loa": true
+        },
+        "hr_mean/stress": {
+          "H1_pearson": false,
+          "H2_bias": true,
+          "H3_loa": false
+        },
+        "hr_mean/amusement": {
+          "H1_pearson": true,
+          "H2_bias": true,
+          "H3_loa": false
+        },
+        "hr_mean/all": {
+          "H4_rmcorr": true
+        },
+        "rmssd/baseline": {
+          "V1_spearman": false,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "rmssd/stress": {
+          "V1_spearman": false,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "rmssd/amusement": {
+          "V1_spearman": true,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "rmssd/all": {
+          "V2_rmcorr": false
+        },
+        "sdnn/baseline": {
+          "V1_spearman": true,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "sdnn/stress": {
+          "V1_spearman": false,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "sdnn/amusement": {
+          "V1_spearman": true,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "sdnn/all": {
+          "V2_rmcorr": true
+        },
+        "pnn50/baseline": {
+          "V1_spearman": true,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "pnn50/stress": {
+          "V1_spearman": false,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "pnn50/amusement": {
+          "V1_spearman": true,
+          "V3_bias": false,
+          "V4_loa": false
+        },
+        "pnn50/all": {
+          "V2_rmcorr": false
+        }
+      },
+      "hr_passes": false,
+      "hrv_tracks_reference": {
+        "rmssd": false,
+        "sdnn": false,
+        "pnn50": false
+      },
+      "hrv_agrees_in_value": {
+        "rmssd": false,
+        "sdnn": false,
+        "pnn50": false
+      },
+      "verdict": "keep HR only (HR not verified: keep with caveats)"
+    }
+  },
+  "alignment_lag_s": {
+    "min": 1.25,
+    "max": 2.5,
+    "median": 1.75
+  },
+  "ecg_good_rr_frac": {
+    "min": 0.8359375,
+    "median": 0.9911504424778761
+  },
+  "criteria": {
+    "hr": {
+      "min_pearson": 0.8,
+      "max_abs_bias": 3.0,
+      "loa_limit": 10.0,
+      "min_rmcorr": 0.7
+    },
+    "hrv": {
+      "rmssd": {
+        "min_spearman": 0.5,
+        "max_abs_bias": 10.0,
+        "loa_limit": 40.0,
+        "min_rmcorr": 0.4
+      },
+      "sdnn": {
+        "min_spearman": 0.5,
+        "max_abs_bias": 10.0,
+        "loa_limit": 40.0,
+        "min_rmcorr": 0.4
+      },
+      "pnn50": {
+        "min_spearman": 0.5,
+        "max_abs_bias": 0.1,
+        "loa_limit": 0.3,
+        "min_rmcorr": 0.4
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "config": "LR universal +motion +drift +hr_std -HRV",
+  "window_s": 20,
+  "n_seeds": 20,
+  "shuffle": "labels permuted within each training subject; test labels untouched",
+  "roc_auc_seed_means": {
+    "mean": 0.5287976200581369,
+    "sd": 0.06444324220905057,
+    "min": 0.41711754608991913,
+    "max": 0.6642938198305027,
+    "p2.5": 0.4265357222757461,
+    "p97.5": 0.6297569632133134
+  },
+  "pr_auc_seed_means_empirical_null": {
+    "mean": 0.511567205862067,
+    "sd": 0.049265379073821856,
+    "min": 0.4361249240479598,
+    "max": 0.6288423053509319,
+    "p2.5": 0.4370233533587146,
+    "p97.5": 0.6021437239515003
+  },
+  "mean_prevalence": 0.3483789829224988,
+  "frac_folds_roc_below_0.5": 0.45,
+  "frac_folds_roc_below_0.2_or_above_0.8": 0.37666666666666665,
+  "frac_folds_roc_0.4_to_0.6": 0.22,
+  "mean_pr_auc_when_roc_above_0.5": 0.6838484508670214,
+  "mean_pr_auc_when_roc_below_0.5": 0.3010012397449007,
+  "mean_of_pr_auc_and_reversed_score_pr_auc": 0.4884563610143665,
+  "per_subject_roc_auc_across_seeds": {
+    "S10": {
+      "mean": 0.436,
+      "std": 0.281,
+      "min": 0.052,
+      "max": 0.921
+    },
+    "S11": {
+      "mean": 0.631,
+      "std": 0.296,
+      "min": 0.106,
+      "max": 0.978
+    },
+    "S13": {
+      "mean": 0.449,
+      "std": 0.294,
+      "min": 0.031,
+      "max": 0.941
+    },
+    "S14": {
+      "mean": 0.644,
+      "std": 0.334,
+      "min": 0.035,
+      "max": 0.996
+    },
+    "S15": {
+      "mean": 0.506,
+      "std": 0.185,
+      "min": 0.129,
+      "max": 0.772
+    },
+    "S16": {
+      "mean": 0.616,
+      "std": 0.329,
+      "min": 0.049,
+      "max": 0.951
+    },
+    "S17": {
+      "mean": 0.65,
+      "std": 0.286,
+      "min": 0.132,
+      "max": 0.986
+    },
+    "S2": {
+      "mean": 0.582,
+      "std": 0.272,
+      "min": 0.058,
+      "max": 0.937
+    },
+    "S3": {
+      "mean": 0.582,
+      "std": 0.184,
+      "min": 0.148,
+      "max": 0.904
+    },
+    "S4": {
+      "mean": 0.461,
+      "std": 0.286,
+      "min": 0.007,
+      "max": 0.986
+    },
+    "S5": {
+      "mean": 0.504,
+      "std": 0.269,
+      "min": 0.031,
+      "max": 0.96
+    },
+    "S6": {
+      "mean": 0.41,
+      "std": 0.255,
+      "min": 0.003,
+      "max": 0.908
+    },
+    "S7": {
+      "mean": 0.42,
+      "std": 0.301,
+      "min": 0.01,
+      "max": 0.99
+    },
+    "S8": {
+      "mean": 0.59,
+      "std": 0.244,
+      "min": 0.1,
+      "max": 0.981
+    },
+    "S9": {
+      "mean": 0.451,
+      "std": 0.3,
+      "min": 0.036,
+      "max": 0.935
+    }
+  },
+  "criterion": "mean of seed means in [0.45, 0.55] AND 2.5-97.5 percentile of seed means contains 0.5",
+  "passed": true
+}

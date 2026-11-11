@@ -1,0 +1,27 @@
+{
+  "windows": [
+    20,
+    30,
+    60
+  ],
+  "n_jobs_run": 81,
+  "inner_folds": 7,
+  "seed": 0,
+  "n_bootstrap": 2000,
+  "best_logreg": {
+    "window_s": 60,
+    "config": "LR personal z -motion +drift -hr_std -HRV",
+    "pr_auc_mean": 0.9941802677235384,
+    "f1_mean": 0.9161425862055634
+  },
+  "main_configs": [
+    "LR universal +motion +drift +hr_std -HRV",
+    "LR personal z +motion +drift +hr_std -HRV",
+    "LR relative-only +motion +hr_std -HRV"
+  ],
+  "mean_prevalence": 0.3491185680749528,
+  "shuffled_null_pr_auc": {
+    "mean": 0.511567205862067,
+    "max": 0.6288423053509319
+  }
+}

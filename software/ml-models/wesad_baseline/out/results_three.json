@@ -1,0 +1,159 @@
+{
+  "task": "three",
+  "window_s": 60,
+  "step_s": 15,
+  "purity": 0.9,
+  "calibration_min": 5,
+  "n_subjects": 15,
+  "n_windows_scored": 1806,
+  "n_calibration_windows": 255,
+  "class_counts_scored": {
+    "1": 869,
+    "2": 614,
+    "3": 323
+  },
+  "resting_hr_median_by_subject_bpm": {
+    "S10": 99.6,
+    "S11": 75.3,
+    "S13": 87.5,
+    "S14": 73.3,
+    "S15": 83.6,
+    "S16": 69.0,
+    "S17": 67.3,
+    "S2": 73.6,
+    "S3": 58.8,
+    "S4": 61.4,
+    "S5": 63.9,
+    "S6": 72.5,
+    "S7": 72.6,
+    "S8": 73.1,
+    "S9": 78.9
+  },
+  "resting_hr_range_across_subjects_bpm": [
+    58.8,
+    99.6
+  ],
+  "pooled": {
+    "rule_universal": {
+      "f1_pooled": 0.459,
+      "confusion_matrix": [
+        [
+          687,
+          182,
+          0
+        ],
+        [
+          167,
+          447,
+          0
+        ],
+        [
+          249,
+          74,
+          0
+        ]
+      ]
+    },
+    "rule_personal": {
+      "f1_pooled": 0.496,
+      "confusion_matrix": [
+        [
+          756,
+          113,
+          0
+        ],
+        [
+          143,
+          471,
+          0
+        ],
+        [
+          244,
+          79,
+          0
+        ]
+      ]
+    },
+    "rf_universal": {
+      "f1_pooled": 0.664,
+      "confusion_matrix": [
+        [
+          647,
+          87,
+          135
+        ],
+        [
+          53,
+          544,
+          17
+        ],
+        [
+          196,
+          11,
+          116
+        ]
+      ]
+    },
+    "rf_personal": {
+      "f1_pooled": 0.72,
+      "confusion_matrix": [
+        [
+          818,
+          7,
+          44
+        ],
+        [
+          10,
+          533,
+          71
+        ],
+        [
+          153,
+          61,
+          109
+        ]
+      ]
+    },
+    "xgb_universal": {
+      "f1_pooled": 0.674,
+      "confusion_matrix": [
+        [
+          691,
+          80,
+          98
+        ],
+        [
+          38,
+          560,
+          16
+        ],
+        [
+          195,
+          27,
+          101
+        ]
+      ]
+    },
+    "xgb_personal": {
+      "f1_pooled": 0.677,
+      "confusion_matrix": [
+        [
+          821,
+          7,
+          41
+        ],
+        [
+          27,
+          518,
+          69
+        ],
+        [
+          156,
+          88,
+          79
+        ]
+      ]
+    }
+  },
+  "note": "WESAD stress = lab stressor (TSST). Not panic. Wrist signals only."
+}
