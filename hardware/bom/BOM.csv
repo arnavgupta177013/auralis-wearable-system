@@ -1,15 +1,15 @@
-item,qty,cost_inr
-ESP32 DevKit / WROOM-32E,1,550
-MAX30102 module,1,199
-MAX30205 breakout (ProtoCentral),1,1695
-MPU6050 GY-521,1,150
-Grove GSR v1.2,1,1057
-AD8232 + cable (validation only),1,600
-Li-Po 3.7V 400mAh PCM,1,350
-TP4056 + haptic ERM/MOSFET/diode,1,120
-Carrier PCB 5 pcs,1,1200
-316L electrodes + gel pads,1,500
-Passives/LDO/UI,1,150
-Enclosure PA12 or PETG,1,600
-TPU strap + PC window,1,500
-TOTAL,,7671
+item,qty,cost_inr,note
+ESP32 DevKit / WROOM-32E,1,550,
+MAX30102 module,1,199,bench v0.2 uses a green MAX30100/30102 board whose chip is a MAX30100 (ID 0x11); its I2C pull-ups go to 1.8 V: add 2.2k to 3V3 or remove its three 472 resistors
+MAX30205 breakout (ProtoCentral),1,1695,
+MPU6050 GY-521,1,150,bench GY-521 carries an MPU6500 (WHO_AM_I 0x70); firmware reads registers directly
+Grove GSR v1.2,1,1057,bench v0.2 uses a generic 3-pin GSR (OUT/VCC/GND); output falls as conductance rises (convert before features)
+AD8232 + cable (validation only),1,600,
+Li-Po 3.7V 400mAh PCM,1,350,
+TP4056 + haptic ERM/MOSFET/diode,1,120,
+Carrier PCB 5 pcs,1,1200,
+316L electrodes + gel pads,1,500,
+Passives/LDO/UI,1,150,includes 2x 2.2k I2C pull-ups for the bench MAX30100 board
+Enclosure PA12 or PETG,1,600,
+TPU strap + PC window,1,500,
+TOTAL,,7671,

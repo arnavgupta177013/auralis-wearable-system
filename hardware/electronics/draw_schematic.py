@@ -49,18 +49,19 @@ ax.text(25, 56, "3V3 rail", fontsize=7, color=GREEN)
 
 # ---------------- SENSORS (right) ----------------
 ax.text(76, 68.4, "SENSING & I/O", fontsize=9, fontweight="bold", color=BLUE)
-for y, t, s2, c in [(57.5, "MAX30102  (0x57)", "PPG → HR / HRV   ·   INT → GPIO4", VIOLET),
+for y, t, s2, c in [(57.5, "MAX30102  (0x57)", "INT → GPIO4  ·  bench: MAX30100 (ID 0x11)", VIOLET),
                     (49.0, "MAX30205  (0x48)", "skin temperature ±0.1 °C, 16-bit", AMBER),
-                    (40.5, "MPU6050  (0x68)", "3-axis accel + gyro   ·   INT → GPIO19", BLUE)]:
+                    (40.5, "MPU6050  (0x68)", "INT → GPIO19  ·  bench: MPU6500 (ID 0x70)", BLUE)]:
     box(88, y, 34, 7.0, t, s2, ec=c, fs=8.2)
     wire([(84, y + 3.5), (88, y + 3.5)], c=NAVY, lw=2.2)
 wire([(84, 44), (84, 61)], c=NAVY, lw=2.6)
 wire([(74, 52.5), (79, 52.5), (79, 50.5), (84, 50.5)], c=NAVY, lw=1.4)
 wire([(74, 48.5), (79, 48.5), (79, 50.5)], c=NAVY, lw=1.4)
 ax.text(79.3, 55.0, "I²C 400 kHz", fontsize=6.3, color=NAVY, ha="center", va="bottom")
+ax.text(79.3, 62.6, "2.2 kΩ pull-ups\nSDA/SCL → 3V3", fontsize=5.8, color=RED, ha="center", va="bottom")
 ax.text(75, 43.5, "INT →", fontsize=6.3, color=RED, va="center"); ax.text(75, 39.5, "INT →", fontsize=6.3, color=RED, va="center")
 
-box(88, 28.3, 34, 10.5, "GSR / EDA front-end", "Grove GSR (prototype)\nR_lim ≥ 330 kΩ → electrode ≤ 10 µA DC", ec=GREEN, fs=8.2)
+box(88, 28.3, 34, 10.5, "GSR / EDA (bench: 3-pin module)", "reads RESISTANCE: convert to µS\nR_lim ≥ 330 kΩ → electrode ≤ 10 µA DC", ec=GREEN, fs=8.2)
 wire([(88, 33.5), (80, 33.5), (74, 33.5)], c=GREEN, lw=1.6)
 ax.annotate("", xy=(74.3, 33.5), xytext=(79, 33.5), arrowprops=dict(arrowstyle="-|>", color=GREEN, lw=1.6))
 ax.text(81.6, 34.4, "analog", fontsize=6.3, color=GREEN)
