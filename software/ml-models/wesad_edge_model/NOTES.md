@@ -1384,3 +1384,21 @@ deterministic** (RF PR-AUC exception above); all LR results, model D and the fea
 - Documentation rounding error fixed: Step D table, shipped row, FP windows/h CI low 14.8 -> 14.7 (CSV value 14.7499).
 - `results/metrics/esp32_feasibility.md` (hand-written, protected) line 21 "+-30 % between runs": replaced with the
   user's approval by the observed two-run timings (see "PC timing measurements" above), in a separate commit.
+
+## Bench hardware check and firmware port (2026-11-12)
+- Parts identified on the breadboard by register reads (I2C test sketch): PPG board PART_ID 0x11 = **MAX30100**
+  (not MAX30102); GY-521 WHO_AM_I 0x70 = **MPU6500** (not MPU6050); GSR = generic 3-pin module. The green
+  MAX30100 board pulled SDA/SCL to ~2.0 V (its 4.7 kΩ pull-ups go to the board's 1.8 V rail); 2.2 kΩ pull-ups to
+  3V3 raised the bus to 2.9 V and both devices then answered (0x57, 0x68).
+- **GSR polarity risk.** Grove-type GSR modules measure resistance; their output falls as conductance rises (Seeed
+  wiki example: 503 counts untouched, 256-371 worn). eda_slope_rel and scr_count_rel are invariant only to a
+  POSITIVE linear gain (Step C, G3), so raw mV would flip the slope's sign and count SCR recoveries instead of
+  responses (scr_count_rel has standardised weight 0.58). Firmware converts to conductance; untested on prototype.
+- Firmware `firmware/esp32/auralis_model_d/`: C port of `src/stream_ref.py` + the generated model header (unchanged)
+  + filter constants generated with the same scipy calls. Host parity test (gcc, float) vs StreamD on synthetic
+  signals from `tests/synthetic_signals.py` (60 s warm-up, 300 s calibration, rest, stress-like segment, rest):
+  227 windows, 0 alert and 0 smoothed-alert differences vs float64 and float32; max |diff| hr_mean 2.45e-05 bpm,
+  eda_slope_rel 7.5e-06, scr_count_rel 0, z 1.1e-06. Device-only parts NOT in that test: MAX30100 100 -> 64 Hz
+  linear interpolation (simulated separately: max error 0.07 % of amplitude on a 1.2 Hz sine), the MAX30100 sample
+  clock, the GSR conversion, quality gating. Nothing has run on the ESP32.
+- Paper: the bench PPG is a MAX30100, not a MAX30102; the outline and draft must say so if hardware is mentioned.

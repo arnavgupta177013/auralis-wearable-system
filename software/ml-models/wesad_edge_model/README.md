@@ -76,7 +76,10 @@ configuration was chosen after seeing held-out results from 192 candidates (NOTE
 itself is fitted on all 15 subjects and has no held-out estimate of its own.
 
 ## ESP32 feasibility: nothing has run on an ESP32
-No firmware exists and the model has **not** been run or validated on ESP32 hardware. Source:
+Firmware for the bench prototype is in `firmware/esp32/auralis_model_d/` (2026-11-12): a C port of
+`src/stream_ref.py` that matched StreamD on synthetic signals (0 alert differences in 227 windows, float32 and
+float64; host gcc). It has **not** been run on the ESP32 yet, and the model has **not** been validated on ESP32
+hardware or prototype signals. Source:
 `results/metrics/esp32_resources.csv`, `esp32_c_test.json`; write-up `results/metrics/esp32_feasibility.md`.
 
 **MEASURED** (on this PC, or by compiling only):
@@ -110,9 +113,14 @@ RAM excludes the RTOS, WiFi/BT stacks, sensor drivers and logging.
 - **Stress, not panic or anxiety.** One lab stressor (TSST). The Auralis deck/IEC wording ("panic", "anxiety") is not
   supported by this model.
 - **15 young, healthy subjects, one lab, one stressor** (WESAD; 12 male, 3 female, 24-35 years).
-- **Different sensors and sites.** Training data are Empatica E4 WRIST signals (BVP 64 Hz, EDA in µS). The prototype
-  uses a FINGERTIP MAX30102 PPG, a finger GSR module read in mV through the nonlinear ESP32 ADC, a MAX30205 contact
-  thermometer and an MPU6050. Nothing has been checked on prototype data (none may be used before IEC approval).
+- **Different sensors and sites.** Training data are Empatica E4 WRIST signals (BVP 64 Hz, EDA in µS). The bench
+  prototype (v0.2) uses a FINGERTIP **MAX30100** PPG (green MAX30100/30102 board, part ID 0x11; MAX30102 planned),
+  a generic finger GSR module read in mV through the nonlinear ESP32 ADC, and an MPU6500 (GY-521 board sold as
+  MPU6050); the MAX30205 is not fitted yet. Nothing has been checked on prototype data (none may be used before IEC
+  approval).
+- **GSR polarity.** Grove-type GSR modules output a voltage that FALLS as skin conductance rises (they measure
+  resistance). The relative EDA features tolerate only a positive linear gain, so the firmware converts mV to
+  conductance before the features; the conversion (Seeed formula) is UNVALIDATED on this module.
 - **Session-time shortcut cannot be separated on WESAD.** Minutes since baseline start alone gives LOSO F1 0.94-0.95,
   higher than every physiological model; the stress-vs-amusement control cannot separate physiology from protocol
   position.

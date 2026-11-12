@@ -20,10 +20,10 @@ The project aims to develop an affordable, modular platform that combines multip
 
 The following are planned or candidate components and may change during development:
 
-- **PPG:** MAX30102 for optical pulse sensing and heart-rate estimation.
+- **PPG:** MAX30102 planned for optical pulse sensing and heart-rate estimation (the bench prototype currently uses a MAX30100 board).
 - **Electrodermal activity:** A suitable EDA/GSR sensing circuit and electrode configuration.
 - **Temperature:** A suitable temperature sensor for the intended measurement location.
-- **Motion:** MPU6050 accelerometer and gyroscope for activity context.
+- **Motion:** MPU6050-class accelerometer and gyroscope for activity context (the bench GY-521 board carries an MPU6500).
 - **Embedded platform:** ESP32 for sensor interfacing and data acquisition.
 - **Machine learning:** Python-based preprocessing, feature extraction, and model development.
 - **Software interface:** A dashboard or application for displaying and analyzing data.
