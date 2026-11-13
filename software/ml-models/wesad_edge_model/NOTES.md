@@ -1393,7 +1393,7 @@ deterministic** (RF PR-AUC exception above); all LR results, model D and the fea
 - **GSR polarity risk.** Grove-type GSR modules measure resistance; their output falls as conductance rises (Seeed
   wiki example: 503 counts untouched, 256-371 worn). eda_slope_rel and scr_count_rel are invariant only to a
   POSITIVE linear gain (Step C, G3), so raw mV would flip the slope's sign and count SCR recoveries instead of
-  responses (scr_count_rel has standardised weight 0.58). Firmware converts to conductance; untested on prototype.
+  responses (scr_count_rel has standardised weight 0.58). Firmware handles the sign; untested on prototype.
 - Firmware `firmware/esp32/auralis_model_d/`: C port of `src/stream_ref.py` + the generated model header (unchanged)
   + filter constants generated with the same scipy calls. Host parity test (gcc, float) vs StreamD on synthetic
   signals from `tests/synthetic_signals.py` (60 s warm-up, 300 s calibration, rest, stress-like segment, rest):
@@ -1402,3 +1402,24 @@ deterministic** (RF PR-AUC exception above); all LR results, model D and the fea
   linear interpolation (simulated separately: max error 0.07 % of amplitude on a 1.2 Hz sine), the MAX30100 sample
   clock, the GSR conversion, quality gating. Nothing has run on the ESP32.
 - Paper: the bench PPG is a MAX30100, not a MAX30102; the outline and draft must say so if hardware is mentioned.
+- First bench runs (2026-11-12, developer only; NOT study data, IEC approval pending): PPG gave plausible HR
+  (75-86 bpm at rest, IR ~23000 with finger, <1000 without; withheld windows as designed). At rest after
+  calibration, scr_count_rel read 8-14 per 30 s window (WESAD median 1) and drove alerts: the 4 Hz GSR samples jumped
+  by hundreds of mV (16 back-to-back ADC reads per sample cannot reject 50 Hz mains hum). Firmware changed to
+  200 Hz oversampling with a 250 ms mean per 4 Hz sample. The module's open-circuit output floats (650-880 mV),
+  so the open-circuit/Seeed-formula conversion was replaced by a measured polarity (light vs firm contact).
+  MAX30100lib stalls permanently if its 16-sample FIFO fills (IR stuck at 0 was seen); firmware now resets it.
+  None of these fixes has been re-run on the bench yet.
+
+## EDA front end v0.3 (2026-11-13; designed and simulated, not built)
+- Bench tests with fixed resistors across the GSR module's electrodes: 12 kOhm and 30 kOhm both read ~2885 mV
+  (output at its ceiling), 560 kOhm read the ADC floor (~142 mV), and moving the resistor made jumps of 790-900 mV.
+  The ESP32 rail probe (two 10k from 3V3) moved ~24-29 mV per 30 s and did not track the GSR (r ~ 0), so the
+  module's narrow, high-gain window, not the supply, explained the noise.
+- Decision: ADS1115 + 330 kOhm divider giving uS ratiometrically (AIN3 = 3V3), 10 kOhm NTC on AIN1 for skin
+  temperature (MAX30205 dropped). Firmware `firmware/esp32/auralis_model_d` v0.3 implements it; conversions
+  host-tested (`test/afe_test.c`), and the whole sketch was run on a PC against an emulated ADS1115 and pulse
+  signal: correct uS and deg C, 0-2 SCRs per window at rest when spontaneous responses were simulated.
+- Caveat found in that simulation: with NO spontaneous responses during calibration, sigma_ph_cal is pure ADC noise
+  and scr_count_rel counts ~20 noise peaks per window. Real skin has responses at rest, but a very calm or dry wearer
+  could approach this; it follows from the feature definition (prominence = 1 x sigma_ph_cal).

@@ -43,12 +43,15 @@ Standing rules for all work in this folder.
     The board pulls SDA/SCL/INT up to its own ~1.8 V (three 4.7 kΩ "472" resistors); the ESP32 cannot read that, so
     2.2 kΩ pull-ups SDA/SCL -> 3V3 are fitted (bus measured 2.9 V).
   - IMU: GY-521 board sold as MPU6050 carries an **MPU6500** (WHO_AM_I 0x70); libraries that check for 0x68 reject it.
-  - GSR: generic 3-pin module (OUT/VCC/GND), electrodes on the index/middle FINGERS, GPIO34 in mV via
-    `analogReadMilliVolts` (ESP32 ADC nonlinear; mV is not µS). Grove-type GSR modules measure skin RESISTANCE: the
-    output FALLS as conductance rises. The relative EDA features are invariant only to a POSITIVE linear gain, so raw
-    mV would invert eda_slope_rel and make scr_count_rel count recoveries. The firmware converts mV to conductance
-    (Seeed formula, open-circuit reading at power-on). Direction and linearity are UNVALIDATED.
-  - MAX30205 and the haptic motor are not fitted yet (alert LED on GPIO25 instead).
+  - EDA (v0.3, 2026-11-13, designed, not yet built): the 3-pin GSR module is replaced by an ADS1115 16-bit ADC
+    (I2C 0x48-0x4B) with a 330 kOhm divider (3V3 -> 330k -> AIN0 -> electrode ~ skin ~ electrode -> GND; skin
+    current <= 10 uA) read ratiometrically against AIN3 = 3V3, giving conductance in uS (the training unit). No
+    polarity question. A 3 s "zero" with the electrodes off the skin removes the ADS1115 input-impedance offset.
+    Why: on the bench the 3-pin module saturated outside ~30-560 kOhm, its open-circuit output floated
+    (650-880 mV), and noise drove scr_count_rel to 8-14 per window at rest (WESAD median 1).
+  - Skin temperature: 10 kOhm NTC bead (2 mm) on ADS1115 AIN1 with a 10 kOhm 1 % divider, replacing the planned
+    MAX30205 (cost; stress model D does not use temperature). B value not given by the seller: calibrate.
+  - The haptic motor is not fitted yet (alert LED on GPIO25 instead).
 - Training data is WESAD Empatica E4 at the WRIST. PPG (fingertip vs wrist) and EDA (finger vs wrist, mV vs µS)
   are therefore domain-shifted; no model result transfers to the prototype until checked on prototype data.
 - Wrist HRV (rmssd, sdnn, pnn50) is excluded from every deployable model: Step A found a within-person correlation

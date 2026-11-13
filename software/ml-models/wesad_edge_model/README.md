@@ -101,7 +101,7 @@ same names as the committed `esp32_resources.csv` / `stream_parity_calibration.c
 
 **ESTIMATED** (arithmetic from buffer sizes and operation counts; assumptions stated):
 
-| quantity | 64 Hz BVP / 4 Hz EDA (WESAD rates) | 100 Hz PPG / 10 Hz GSR (prototype rates) |
+| quantity | 64 Hz BVP / 4 Hz EDA (WESAD rates) | 100 Hz PPG / 4 Hz EDA from 128 SPS ADS1115 conversions (prototype rates) |
 |---|---|---|
 | RAM, feature front end + model | 15061 B (2.83 % of ~520 KB) | 24405 B (4.58 %) |
 | CPU, one core at 240 MHz, 5-20 cycles per op (ASSUMED) | 0.07-0.30 % | 0.17-0.67 % |
@@ -115,12 +115,12 @@ RAM excludes the RTOS, WiFi/BT stacks, sensor drivers and logging.
 - **15 young, healthy subjects, one lab, one stressor** (WESAD; 12 male, 3 female, 24-35 years).
 - **Different sensors and sites.** Training data are Empatica E4 WRIST signals (BVP 64 Hz, EDA in µS). The bench
   prototype (v0.2) uses a FINGERTIP **MAX30100** PPG (green MAX30100/30102 board, part ID 0x11; MAX30102 planned),
-  a generic finger GSR module read in mV through the nonlinear ESP32 ADC, and an MPU6500 (GY-521 board sold as
-  MPU6050); the MAX30205 is not fitted yet. Nothing has been checked on prototype data (none may be used before IEC
-  approval).
-- **GSR polarity.** Grove-type GSR modules output a voltage that FALLS as skin conductance rises (they measure
-  resistance). The relative EDA features tolerate only a positive linear gain, so the firmware converts mV to
-  conductance before the features; the conversion (Seeed formula) is UNVALIDATED on this module.
+  an EDA divider read by an ADS1115 16-bit ADC (v0.3, replacing a generic GSR module; designed, not yet built) and
+  an MPU6500 (GY-521 board sold as MPU6050); skin temperature comes from a 10 kOhm NTC on the same ADC in place of
+  the MAX30205. Nothing has been checked on prototype data (none may be used before IEC approval).
+- **EDA unit.** The v0.3 front end gives conductance in uS directly (330 kOhm divider, ratiometric), so the features
+  see the training unit and sign. The earlier GSR module's output fell as conductance rose and saturated outside
+  ~30-560 kOhm; firmware v0.2 handled the sign but not the saturation or the noise.
 - **Session-time shortcut cannot be separated on WESAD.** Minutes since baseline start alone gives LOSO F1 0.94-0.95,
   higher than every physiological model; the stress-vs-amusement control cannot separate physiology from protocol
   position.
